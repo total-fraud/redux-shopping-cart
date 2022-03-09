@@ -1,24 +1,104 @@
 import cartReducer, {
-    CartState,
     addToCart,
     removeFromCart,
     increaseQuantity,
-    decreaseQuantity
+    decreaseQuantity, CartState, getNumItems, getTotalPrice
 } from "./cartSlice"
+import products from "../../../public/products.json"
+import {RootState} from "../../app/store";
 
 describe("cart reducer", () => {
-    test.todo("an empty action", () => {
+    test("add to cart", () => {
         const initialState = undefined
-        const action = { type: ""}
+        const action = addToCart("abc")
         const state = cartReducer(initialState, action)
         expect(state).toEqual({
-            checkoutState: "READY",
-            errorMessage: "",
-            items: {}
+            items: {abc: 1}
         })
     })
-    test.todo("add to cart")
-    test.todo("remove from cart")
-    test.todo("increase quantity")
-    test.todo("decrease quantity")
+    test("remove from cart", () => {
+        const initialState = {
+            items: {
+                abc: 1,
+                def: 3
+            }
+        }
+        const action = removeFromCart("def")
+        const state = cartReducer(initialState, action)
+        expect(state).toEqual({
+            items: {abc: 1}
+        })
+    })
+    test("increase quantity", () => {
+        const initialState = {
+            items: {
+                abc: 1
+            }
+        }
+        const action = increaseQuantity("abc")
+        const state = cartReducer(initialState, action)
+        expect(state).toEqual({
+            items: {abc: 2}
+        })
+    })
+    test("decrease quantity", () => {
+        const initialState = {
+            items: {
+                abc: 1
+            }
+        }
+        const action = decreaseQuantity("abc")
+        const state = cartReducer(initialState, action)
+        expect(state).toEqual({
+            items: {abc: 0}
+        })
+    })
+})
+
+describe("selectors", () => {
+    describe("get items number", () => {
+        it("should return 0 with no items", () => {
+            const cart: CartState = {
+                items: {}
+            }
+            const result = getNumItems({cart} as RootState)
+            expect(result).toEqual(0)
+        })
+        it("should add up the total", () => {
+            const cart: CartState = {
+                items: {abc: 3, def: 1}
+            }
+            const result = getNumItems({cart} as RootState)
+            expect(result).toEqual(4)
+        })
+    })
+})
+
+describe("Get total price", () => {
+    it("should return 0 with an empty cart", () => {
+        const state: RootState = {
+            cart: {items: {}},
+            products: {items: {}}
+        }
+        const result = getTotalPrice(state)
+        expect(result).toEqual("0.00")
+    })
+    it("should sum all prices", () => {
+        const state: RootState = {
+            cart: {
+                items: {
+                    [products[0].id]: 3,
+                    [products[0].id]: 2
+                }
+            },
+            products: {
+                items: {
+                    [products[0].id]: products[0],
+                    [products[0].id]: products[0],
+                }
+            }
+        }
+        const result = getTotalPrice(state)
+        expect(result).toEqual("10.18")
+    })
 })

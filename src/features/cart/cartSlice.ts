@@ -37,16 +37,16 @@ const cartSlice = createSlice({
         }
     }
 })
-export const getMemoizedNumItems = createSelector(
-    (state: RootState) => state.cart.items,
-    (items) => {
-        let numItems = 0
-        for (let id in items) {
-            numItems += items[id]
-        }
-        return numItems
+export function getNumItems(state: RootState) {
+    let numItems = 0
+    for (let id in state.cart.items) {
+        numItems += state.cart.items[id]
     }
-)
+    return numItems
+}
+
+
+
 export const getTotalPrice = createSelector(
     (state: RootState) => state.cart.items,
     (state: RootState) => state.products.items,
@@ -58,5 +58,6 @@ export const getTotalPrice = createSelector(
         return total.toFixed(2)
     }
 )
+
 export const {addToCart, removeFromCart, decreaseQuantity, increaseQuantity} = cartSlice.actions
 export default cartSlice.reducer

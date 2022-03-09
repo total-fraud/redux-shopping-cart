@@ -17,7 +17,7 @@ export function Cart() {
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
-                    <th>Total</th>
+                    <th>Price</th>
                     <th>Remove</th>
                 </tr>
                 </thead>
@@ -36,7 +36,7 @@ export function Cart() {
                                 +
                             </button>
                         </td>
-                        <td>${(products[id].price * items[id]).toFixed(2)}</td>
+                        <td>${products[id].price}</td>
                         <td>
                             <button onClick={() => dispatch(removeFromCart(id))}
                                     aria-label={`Remove ${products[id].name} from Shopping Cart`}>
