@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "Chocolate flavour ice cream",
+    "price": 5.09,
+    "imageURL": "https://ashleemarie.com/wp-content/uploads/2014/07/easy-homemade-chocolate-ice-cream-500x500.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Strawberry flavour ice cream",
+    "price": 7.99,
+    "imageURL": "https://lifemadesweeter.com/wp-content/uploads/Low-Carb-Keto-Strawberry-Ice-Cream-Recipe-Photo-Picture-33-500x500.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Cotton Candy flavour ice cream",
+    "price": 10.49,
+    "imageURL": "https://princesspinkygirl.com/wp-content/uploads/2020/07/Cotton-Candy-Ice-Cream-Square-500x500.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Vanilla flavour ice cream",
+    "price": 5.99,
+    "imageURL": "https://static.toiimg.com/photo/54677722.cms"
+  },
+  {
+    "id": "5",
+    "name": "Pistachio flavour ice cream",
+    "price": 50.0,
+    "imageURL": "https://www.heenieblogsfood.com/wp-content/uploads/2020/03/wp-1583754415183-500x500.jpg"
+  }
+]
