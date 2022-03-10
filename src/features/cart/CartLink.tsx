@@ -7,10 +7,9 @@ import {getNumItems} from "./cartSlice";
 export function CartLink() {
     const numItems: number = useAppSelector(getNumItems)
     return (
-        <Link to="/cart" className={styles.link}>
+        <Link data-testid="CartLink" to="/cart" className={styles.link}>
             <span className={styles.text}>
-                🛒&nbsp;&nbsp;
-                {numItems ? numItems : "Cart"}
+                🛒 {numItems ? numItems : "Cart"}
             </span>
         </Link>
     );

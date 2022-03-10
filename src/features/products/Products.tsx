@@ -24,7 +24,6 @@ const products = useAppSelector(state => state.products.items)
               </figure>
               <div>
                 <h1>{product.name}</h1>
-                <p>{product.description}</p>
                 <p>${product.price}</p>
                 <button onClick={() => dispatch(addToCart(product.id))}>Add to Cart 🛒</button>
               </div>
