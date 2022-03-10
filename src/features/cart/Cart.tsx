@@ -23,7 +23,7 @@ export function Cart() {
                 </thead>
                 <tbody>
                 {Object.entries(items).reverse().map(([id]) => (
-                    <tr>
+                    <tr key={id}>
                         <td>{products[id].name}</td>
                         <td>
                             <button onClick={(e) => dispatch(decreaseQuantity(id))}
