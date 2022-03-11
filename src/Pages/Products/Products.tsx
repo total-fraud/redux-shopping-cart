@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import {useAppSelector, useAppDispatch} from "../../app/hooks"
 import { getProducts } from "../../app/api";
-import { receivedProducts } from "./productsSlice";
+import { receivedProducts } from "../../features/products/productsSlice";
 import styles from "./Products.module.css";
-import {addToCart} from "../cart/cartSlice";
+import {addToCart} from "../../features/cart/cartSlice";
 
 export function Products() {
     const dispatch = useAppDispatch()
@@ -22,11 +22,11 @@ const products = useAppSelector(state => state.products.items)
               <figure>
                 <img src={product.imageURL} alt={product.name} />
               </figure>
-              <div>
                 <h1>{product.name}</h1>
+                <div className={styles.productFooter}>
                 <p>${product.price}</p>
                 <button onClick={() => dispatch(addToCart(product.id))}>Add to Cart 🛒</button>
-              </div>
+                </div>
             </article>
           </li>
         ))}

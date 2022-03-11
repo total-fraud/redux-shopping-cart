@@ -10,21 +10,20 @@ export function wrapper(
     state?: RootState
 ) {
     const store = getStoreWithState(state)
-   const utils = render(
+    const utils = render(
         <Provider store={store}>
             <Router>{element}</Router>
         </Provider>
     )
-    return { store, ...utils }
+    return {store, ...utils}
 }
 
 export function getStateWithItems(
     items: Record<string, number>,
     products: Record<string, Product> = {}
 ): RootState {
-    const state: RootState = {
-        products: { items: products },
-        cart: {  items },
+    return {
+        products: {items: products},
+        cart: {items},
     };
-    return state;
 }

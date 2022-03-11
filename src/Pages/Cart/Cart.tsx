@@ -1,7 +1,7 @@
 import React from "react";
 import {useAppSelector, useAppDispatch} from "../../app/hooks"
 import styles from "./Cart.module.css";
-import {getTotalPrice, removeFromCart, decreaseQuantity, increaseQuantity} from "./cartSlice";
+import {getTotalPrice, removeFromCart, decreaseQuantity, increaseQuantity} from "../../features/cart/cartSlice";
 
 export function Cart() {
     const dispatch = useAppDispatch()

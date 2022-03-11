@@ -2,8 +2,8 @@ import React from "react";
 import {screen} from "@testing-library/react";
 import {CartLink} from "./CartLink";
 import {store} from "../../app/store";
-import {addToCart, decreaseQuantity, increaseQuantity} from "./cartSlice";
-import {Cart} from "./Cart";
+import {addToCart, decreaseQuantity, increaseQuantity} from "../../features/cart/cartSlice";
+import {Cart} from "../../Pages/Cart/Cart";
 import {wrapper} from "../../test-utils";
 
 test("should contain a link", () => {
