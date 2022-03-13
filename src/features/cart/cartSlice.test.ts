@@ -7,6 +7,8 @@ import cartReducer, {
 import products from "../../../public/products.json"
 import {RootState} from "../../app/store";
 
+// checking if adding to cart is working fine, id`s are random
+
 describe("cart reducer", () => {
     test("add to cart", () => {
         const initialState = undefined
@@ -16,6 +18,9 @@ describe("cart reducer", () => {
             items: {abc: 1}
         })
     })
+
+    // checking if remove from cart is working fine @abc just for checking if it still there after deleting his friend :(
+
     test("remove from cart", () => {
         const initialState = {
             items: {
@@ -29,6 +34,8 @@ describe("cart reducer", () => {
             items: {abc: 1}
         })
     })
+
+
     test("increase quantity", () => {
         const initialState = {
             items: {
@@ -55,6 +62,8 @@ describe("cart reducer", () => {
     })
 })
 
+//checking work of selectors that check sum of all items in the cart
+
 describe("selectors", () => {
     describe("get items number", () => {
         it("should return 0 with no items", () => {
@@ -73,6 +82,8 @@ describe("selectors", () => {
         })
     })
 })
+
+//check price sum for cart
 
 describe("Get total price", () => {
     it("should return 0 with an empty cart", () => {

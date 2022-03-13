@@ -5,8 +5,12 @@ import {screen, waitFor} from "@testing-library/react";
 import * as api from "../../app/api"
 import mockProducts from "../../../public/products.json"
 
+//mocking getProducts function
+
 const getProductsSpy = jest.spyOn(api, "getProducts")
 getProductsSpy.mockResolvedValue(mockProducts)
+
+//testing if getProducts get called, and then check if length of both are equal
 
 test("Checking rendered products", async () => {
     wrapper(<Products/>)

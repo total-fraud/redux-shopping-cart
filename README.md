@@ -1,5 +1,5 @@
-## redux-shopping-cart
-#In the app i used boilerplate with vite.js (bundler), typeScript, react, redux, react-redux, redux-tool-kit, css modules, 
+# redux-shopping-cart
+##In the app i used boilerplate with vite.js (bundler), typeScript, react, redux, react-redux, redux-tool-kit, css modules, 
  
 main.tsx is the whole app wrapper, providing redux store to the app
 
@@ -13,4 +13,6 @@ for creating store that can combine our slices (like combineReducers), then expo
 
 in test-utils.tsx we describe wrapper function that wrap components in provider and router to test components work, in the next function we take as a parameter fake store data also to test cart component
 
-#Inner components logic you can read from components comments
+##Inner component`s logic you can read from components comments
+
+##To run puppeteer test`s you need to wright in the terminal: npm run preview and start then start the test

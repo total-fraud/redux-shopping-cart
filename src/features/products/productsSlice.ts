@@ -9,6 +9,8 @@ const initialState: ProductsState = {
     items: {}
 }
 
+//the whole logic of that one is just to receive array of products in the payload
+
 const productsSlice = createSlice({
     name: "products",
     initialState,

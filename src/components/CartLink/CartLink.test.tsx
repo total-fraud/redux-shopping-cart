@@ -6,10 +6,13 @@ import {addToCart, decreaseQuantity, increaseQuantity} from "../../features/cart
 import {Cart} from "../../Pages/Cart/Cart";
 import {wrapper} from "../../test-utils";
 
+//checking if it`s even existing
+
 test("should contain a link", () => {
     wrapper(<CartLink/>)
     expect(screen.getByRole("link")).toBeInTheDocument()
 })
+
 
 test("should show when cart empty", () => {
     wrapper(<CartLink/>)
@@ -17,6 +20,8 @@ test("should show when cart empty", () => {
     expect(link).toHaveTextContent("Cart")
     expect(link).not.toHaveTextContent("0")
 })
+
+//checking if it can show the right sum after decrease/increaseQuantity (we can just add from this page isn`t it overkill?)
 
 test("should show numbers of items", () => {
   store.dispatch(addToCart("testItem"))

@@ -5,6 +5,7 @@ import {getTotalPrice, removeFromCart, decreaseQuantity, increaseQuantity} from 
 
 export function Cart() {
     const dispatch = useAppDispatch()
+    // getting redux state
     const products = useAppSelector(state => state.products.items)
     const items = useAppSelector(state => state.cart.items)
     const totalPrice = useAppSelector(getTotalPrice)
@@ -25,13 +26,13 @@ export function Cart() {
                 {Object.entries(items).reverse().map(([id]) => (
                     <tr key={id}>
                         <td>{products[id].name}</td>
-                        <td>
+                        <td className={styles.quantity}>
                             <button onClick={(e) => dispatch(decreaseQuantity(id))}
                                     aria-label={`Remove ${products[id].name} from Shopping Cart`}>
                                 -
                             </button>
                             {items[id]}
-                            <button onClick={(e) => dispatch(increaseQuantity(id))}
+                            <button  onClick={(e) => dispatch(increaseQuantity(id))}
                                     aria-label={`Remove ${products[id].name} from Shopping Cart`}>
                                 +
                             </button>
@@ -50,9 +51,9 @@ export function Cart() {
                 <tfoot>
                 <tr>
                     <td>Total</td>
-                    <td></td>
+                    <td/>
                     <td className={styles.total}>${totalPrice}</td>
-                    <td></td>
+                    <td/>
                 </tr>
                 </tfoot>
             </table>

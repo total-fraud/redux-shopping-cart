@@ -10,7 +10,6 @@ describe("products reducer", () => {
     })
     it("should convert the products received to an object", () => {
         const initialState = undefined
-        // @ts-ignore
         const action = receivedProducts(products)
         const result = productsReducer(initialState, action)
         expect(Object.keys(result.items).length).toEqual(products.length)

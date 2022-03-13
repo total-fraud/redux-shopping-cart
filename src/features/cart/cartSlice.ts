@@ -9,10 +9,13 @@ const initialState: CartState = {
     items: {}
 }
 
+// creating cart state logic
+
 const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
+        //adding item to cart one per click
         addToCart(state, action: PayloadAction<string>) {
             const id = action.payload
             if (state.items[id]) {
@@ -21,9 +24,11 @@ const cartSlice = createSlice({
                 state.items[id] = 1
             }
         },
+        //deleting item from cart
         removeFromCart(state, action: PayloadAction<string>) {
             delete state.items[action.payload]
         },
+        //decreasing item, one per click
         decreaseQuantity(state, action: PayloadAction<string>) {
             const id = action.payload
             if (state.items[id] > 0) {
@@ -31,12 +36,15 @@ const cartSlice = createSlice({
             }
 
         },
+        //increasing item, one per click
         increaseQuantity(state, action: PayloadAction<string>) {
             const id = action.payload
             state.items[id]++
         }
     }
 })
+//get whole items quantity for cartlink (on main page)
+
 export function getNumItems(state: RootState) {
     let numItems = 0
     for (let id in state.cart.items) {
@@ -46,7 +54,7 @@ export function getNumItems(state: RootState) {
 }
 
 
-
+//get whole cart price
 export const getTotalPrice = createSelector(
     (state: RootState) => state.cart.items,
     (state: RootState) => state.products.items,

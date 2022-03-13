@@ -7,6 +7,7 @@ import {addToCart} from "../../features/cart/cartSlice";
 
 export function Products() {
     const dispatch = useAppDispatch()
+    //saving fetched items to store
     useEffect(() => {
         getProducts().then((products) => {
             dispatch(receivedProducts(products))
@@ -25,7 +26,7 @@ const products = useAppSelector(state => state.products.items)
                 <h1>{product.name}</h1>
                 <div className={styles.productFooter}>
                 <p>${product.price}</p>
-                <button onClick={() => dispatch(addToCart(product.id))}>Add to Cart 🛒</button>
+                <button className={styles.toCart} onClick={() => dispatch(addToCart(product.id))}>Add to Cart 🛒</button>
                 </div>
             </article>
           </li>

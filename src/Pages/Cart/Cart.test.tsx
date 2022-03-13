@@ -4,6 +4,8 @@ import {getStateWithItems, wrapper} from "../../test-utils";
 import {Cart} from "./Cart";
 import {Product} from "../../app/api";
 
+//checking if total calculates right
+
 test("Cart should display correct total", () => {
     const state = getStateWithItems(
         {testItem: 2},
