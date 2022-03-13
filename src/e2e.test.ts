@@ -12,14 +12,14 @@ describe("Whole app test", () => {
     })
 
     it("contains text for cart link", async () => {
-        await page.goto("http://localhost:5000")
+        await page.goto("http://localhost:5000/redux-shopping-cart/")
         await page.waitForSelector("._text_b1e58_11")
         const text = await page.$eval("._text_b1e58_11", (e) => e.textContent)
         expect(text).toContain("Cart")
     })
 
     it("navigates to the cart page", async () => {
-        await page.goto("http://localhost:5000")
+        await page.goto("http://localhost:5000/redux-shopping-cart/")
         await page.waitForSelector("._text_b1e58_11")
         await page.click("._text_b1e58_11")
         await page.waitForSelector("h1")
@@ -28,14 +28,14 @@ describe("Whole app test", () => {
     })
 
     it("show all items", async () => {
-        await page.goto("http://localhost:5000")
+        await page.goto("http://localhost:5000/redux-shopping-cart/")
         await page.waitForSelector("._products_1ava0_1")
         const products = await page.$$("li")
         expect(products).toHaveLength(5)
     })
 
     it("should open main page, add item and show the right total price at the cart page", async () => {
-        await page.goto("http://localhost:5000")
+        await page.goto("http://localhost:5000/redux-shopping-cart/")
         await page.waitForSelector("p")
         const productPrice = await page.$eval("ul > li:nth-child(1) > article > div > p", (e): string => e.textContent!)
         await page.waitForSelector("ul > li:nth-child(1) ._toCart_1ava0_107")
