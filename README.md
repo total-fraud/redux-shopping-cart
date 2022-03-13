@@ -15,6 +15,6 @@ in test-utils.tsx we describe wrapper function that wrap components in provider 
 
 ##Inner components logic you can read from components comments
 
-##To run puppeteer tests you need to wright in the terminal: npm run preview and start then start the test
+##To run puppeteer tests you need to wright in the terminal: npm run preview and then start the test
 
 ##To run non puppeteer tests simply npm run dev and then proceed with it
