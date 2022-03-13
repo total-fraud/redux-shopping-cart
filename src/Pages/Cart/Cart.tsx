@@ -58,7 +58,7 @@ export function Cart() {
                 </tfoot>
             </table>
             <form>
-                <button className={styles.button} type="submit">
+                <button className={styles.button} onClick={() => alert("Nice taste!")}>
                     Checkout
                 </button>
             </form>
