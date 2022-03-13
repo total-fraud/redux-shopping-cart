@@ -11,7 +11,7 @@ function App() {
             <div className={styles.app}>
                 <header className={styles.header}>
                     <nav>
-                        <Link className={styles.navLink} to="/">
+                        <Link className={styles.navLink} to="/redux-shopping-cart/">
                             Products
                         </Link>
                         <CartLink/>

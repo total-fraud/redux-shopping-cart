@@ -7,7 +7,7 @@ export interface Product {
 }
 //fetching json dummy
 export async function getProducts(): Promise<Product[]> {
-  const results = await fetch("/products.json")
+  const results = await fetch("products.json")
   return results.json()
 }
 

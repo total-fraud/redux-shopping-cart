@@ -12,7 +12,7 @@ export function Products() {
         getProducts().then((products) => {
             dispatch(receivedProducts(products))
         })
-    })
+    }, [])
 const products = useAppSelector(state => state.products.items)
   return (
     <main className="page">
