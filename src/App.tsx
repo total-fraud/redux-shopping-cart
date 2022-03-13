@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 import {Products} from "./Pages/Products/Products";
 import {CartLink} from "./components/CartLink/CartLink";
 import {Cart} from "./Pages/Cart/Cart";
@@ -7,11 +7,11 @@ import styles from "./App.module.css";
 
 function App() {
     return (
-        <Router>
+        <BrowserRouter basename={"/redux-shopping-cart"}>
             <div className={styles.app}>
                 <header className={styles.header}>
                     <nav>
-                        <Link className={styles.navLink} to="/redux-shopping-cart/">
+                        <Link className={styles.navLink} to="/">
                             Products
                         </Link>
                         <CartLink/>
@@ -26,7 +26,7 @@ function App() {
                     <Cart/>
                 </Route>
             </Switch>
-        </Router>
+        </BrowserRouter>
     );
 }
 
