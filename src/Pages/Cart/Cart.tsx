@@ -27,12 +27,12 @@ export function Cart() {
                     <tr key={id}>
                         <td>{products[id].name}</td>
                         <td className={styles.quantity}>
-                            <button onClick={(e) => dispatch(decreaseQuantity(id))}
+                            <button onClick={() => dispatch(decreaseQuantity(id))}
                                     aria-label={`Remove ${products[id].name} from Shopping Cart`}>
                                 -
                             </button>
                             {items[id]}
-                            <button  onClick={(e) => dispatch(increaseQuantity(id))}
+                            <button  onClick={() => dispatch(increaseQuantity(id))}
                                     aria-label={`Remove ${products[id].name} from Shopping Cart`}>
                                 +
                             </button>
