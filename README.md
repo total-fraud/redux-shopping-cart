@@ -1,4 +1,6 @@
 # redux-shopping-cart
+https://total-fraud.github.io/redux-shopping-cart/
+
 ##In the app i used boilerplate with vite.js (bundler), typeScript, react, redux, react-redux, redux-tool-kit, css modules, 
  
 main.tsx is the whole app wrapper, providing redux store to the app
